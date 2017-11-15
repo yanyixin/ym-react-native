@@ -60,9 +60,7 @@ module.exports = {
     
     // General
     
-    // This must be disallowed in this repo because the minimum supported
-    // version of node is 4 which doesn't support trailing commas.
-    // Once the minimum supported version is 8 or greater this can be changed
+    // 下面规则的具体含义参见 http://eslint.cn/docs/rules/no-extra-parens
     "comma-dangle": [2, {            // disallow trailing commas in object literals
       "arrays": "ignore",
       "objects": "ignore",
@@ -71,79 +69,75 @@ module.exports = {
       "functions": "never"
     }],
     
-    "no-cond-assign": 1,             // disallow assignment in conditional expressions
-    "no-console": 0,                 // disallow use of console (off by default in the node environment)
-    "no-const-assign": 2,            // disallow assignment to const-declared variables
-    "no-constant-condition": 0,      // disallow use of constant expressions in conditions
-    "no-control-regex": 1,           // disallow control characters in regular expressions
-    "no-debugger": 1,                // disallow use of debugger
-    "no-dupe-keys": 1,               // disallow duplicate keys when creating object literals
-    "no-empty": 0,                   // disallow empty statements
-    "no-ex-assign": 1,               // disallow assigning to the exception in a catch block
-    "no-extra-boolean-cast": 1,      // disallow double-negation boolean casts in a boolean context
-    "no-extra-parens": 0,            // disallow unnecessary parentheses (off by default)
-    "no-extra-semi": 1,              // disallow unnecessary semicolons
-    "no-func-assign": 1,             // disallow overwriting functions written as function declarations
-    "no-inner-declarations": 0,      // disallow function or variable declarations in nested blocks
-    "no-invalid-regexp": 1,          // disallow invalid regular expression strings in the RegExp constructor
-    "no-negated-in-lhs": 1,          // disallow negation of the left operand of an in expression
-    "no-obj-calls": 1,               // disallow the use of object properties of the global object (Math and JSON) as functions
-    "no-regex-spaces": 1,            // disallow multiple spaces in a regular expression literal
+    "no-cond-assign": 1,             // 禁止条件表达式中出现赋值操作符，比如 if (age = 16){}
+    "no-console": 0,                 // 不允许使用 console (在 node 环境中默认关闭)
+    "no-const-assign": 2,            // 禁止修改 const 声明的变量
+    "no-constant-condition": 0,      // 禁止在条件中使用常量表达式
+    "no-control-regex": 1,           // 禁止在正则表达式中使用控制字符
+    "no-debugger": 1,                // 禁止使用 debugger
+    "no-dupe-keys": 1,               // 在创建对象字面量时不允许键重复 {a:1,a:1}
+    "no-empty": 0,                   // 块语句中的内容不能为空
+    "no-ex-assign": 1,               // 禁止给 catch 语句中的异常参数赋值
+    "no-extra-boolean-cast": 1,      // 禁止不必要的布尔类型转换，参见 http://eslint.cn/docs/rules/no-extra-boolean-cast
+    "no-extra-semi": 1,              // 禁用不必要的分号
+    "no-func-assign": 1,             // 禁止对 function 声明重新赋值
+    "no-inner-declarations": 1,      // 禁止在嵌套的块中出现变量声明或 function 声明
+    "no-invalid-regexp": 1,          // 禁止 RegExp 构造函数中存在无效的正则表达式字符串
+    "no-negated-in-lhs": 1,          // in 操作符的左边不能有!
+    "no-obj-calls": 2,               // 禁止把全局对象作为函数调用
+    "no-regex-spaces": 1,            // 禁止正则表达式字面量中出现多个空格
     "no-reserved-keys": 0,           // disallow reserved words being used as object literal keys (off by default)
-    "no-sparse-arrays": 1,           // disallow sparse arrays
-    "no-unreachable": 1,             // disallow unreachable statements after a return, throw, continue, or break statement
-    "use-isnan": 1,                  // disallow comparisons with the value NaN
-    "valid-jsdoc": 0,                // Ensure JSDoc comments are valid (off by default)
-    "valid-typeof": 1,               // Ensure that the results of typeof are compared against a valid string
+    "no-sparse-arrays": 2,           // 禁用稀疏数组，比如：var colors = [ "red",, "blue" ];
+    "no-unreachable": 2,             // 禁止在return、throw、continue 和 break 语句之后出现不可达代码
+    "use-isnan": 2,                  // 要求使用 isNaN() 检查 NaN
+    "valid-typeof": 2,               // 强制 typeof 表达式与有效的字符串进行比较
     
-    // Best Practices
-    // These are rules designed to prevent you from making mistakes. They either prescribe a better way of doing something or help you avoid footguns.
+    // 这些规则是关于最佳实践的，帮助你避免一些问题:
     
-    "block-scoped-var": 0,           // treat var statements as if they were block scoped (off by default)
-    "complexity": 0,                 // specify the maximum cyclomatic complexity allowed in a program (off by default)
-    "consistent-return": 0,          // require return statements to either always or never specify values
-    "curly": 1,                      // specify curly brace conventions for all control statements
-    "default-case": 0,               // require default case in switch statements (off by default)
-    "dot-notation": 1,               // encourages use of dot notation whenever possible
-    "eqeqeq": [1, "allow-null"],     // require the use of === and !==
-    "guard-for-in": 0,               // make sure for-in loops have an if statement (off by default)
-    "no-alert": 1,                   // disallow the use of alert, confirm, and prompt
-    "no-caller": 1,                  // disallow use of arguments.caller or arguments.callee
-    "no-div-regex": 1,               // disallow division operators explicitly at beginning of regular expression (off by default)
-    "no-else-return": 0,             // disallow else after a return in an if (off by default)
-    "no-eq-null": 0,                 // disallow comparisons to null without a type-checking operator (off by default)
-    "no-eval": 1,                    // disallow use of eval()
-    "no-extend-native": 1,           // disallow adding to native types
-    "no-extra-bind": 1,              // disallow unnecessary function binding
-    "no-fallthrough": 1,             // disallow fallthrough of case statements
-    "no-floating-decimal": 1,        // disallow the use of leading or trailing decimal points in numeric literals (off by default)
-    "no-implied-eval": 1,            // disallow use of eval()-like methods
-    "no-labels": 1,                  // disallow use of labeled statements
-    "no-iterator": 1,                // disallow usage of __iterator__ property
-    "no-lone-blocks": 1,             // disallow unnecessary nested blocks
-    "no-loop-func": 0,               // disallow creation of functions within loops
-    "no-multi-str": 0,               // disallow use of multiline strings
-    "no-native-reassign": 0,         // disallow reassignments of native objects
-    "no-new": 1,                     // disallow use of new operator when not part of the assignment or comparison
-    "no-new-func": 1,                // disallow use of new operator for Function object
-    "no-new-wrappers": 1,            // disallows creating new instances of String,Number, and Boolean
-    "no-octal": 1,                   // disallow use of octal literals
-    "no-octal-escape": 1,            // disallow use of octal escape sequences in string literals, such as var foo = "Copyright \251";
-    "no-proto": 1,                   // disallow usage of __proto__ property
-    "no-redeclare": 0,               // disallow declaring the same variable more then once
-    "no-return-assign": 1,           // disallow use of assignment in return statement
-    "no-script-url": 1,              // disallow use of javascript: urls.
-    "no-self-compare": 1,            // disallow comparisons where both sides are exactly the same (off by default)
-    "no-sequences": 1,               // disallow use of comma operator
-    "no-unused-expressions": 0,      // disallow usage of expressions in statement position
-    "no-void": 1,                    // disallow use of void operator (off by default)
-    "no-warning-comments": 0,        // disallow usage of configurable warning terms in comments": 1,                        // e.g. TODO or FIXME (off by default)
-    "no-with": 1,                    // disallow use of the with statement
-    "radix": 1,                      // require use of the second argument for parseInt() (off by default)
-    "semi-spacing": 1,	             // require a space after a semi-colon
-    "vars-on-top": 0,                // requires to declare all vars on top of their containing scope (off by default)
-    "wrap-iife": 0,                  // require immediate function invocation to be wrapped in parentheses (off by default)
-    "yoda": 1,                       // require or disallow Yoda conditions
+    "block-scoped-var": 1,           // 强制把变量的使用限制在其定义的作用域范围内（默认关闭）
+    "consistent-return": 0,          // 要求 return 语句要么总是指定返回的值，要么不指定
+    "curly": 0,                      // 强制所有控制语句使用一致的括号风格,要求遵循大括号约定
+    "default-case": 1,               // 要求 switch 语句中有 default 分支
+    "dot-notation": 0,               // 强制尽可能地使用点号
+    "eqeqeq": [1, "always", {"null": "ignore"}],     // 要求使用 === 和 !==
+    "guard-for-in": 0,               // 要求 for-in 循环中有一个 if 语句（默认关闭）
+    "no-alert": 1,                   // 禁用 alert、confirm 和 prompt
+    "no-caller": 2,                  // 禁用 arguments.caller 或 arguments.callee
+    "no-div-regex": 1,               // 禁止除法操作符显式的出现在正则表达式开始的位置（默认关闭）
+    "no-else-return": 2,             // 禁止在 else 前有 return（默认关闭）
+    "no-eq-null": 1,                 // 禁止在没有类型检查操作符的情况下与 null 进行比较（默认关闭）
+    "no-eval": 1,                    // 禁用 eval()
+    "no-extend-native": 1,           // 禁止扩展原生类型
+    "no-extra-bind": 1,              // 禁止不必要的 .bind() 调用
+    "no-fallthrough": 1,             // 禁止 case 语句落空
+    "no-floating-decimal": 1,        // 禁止数字字面量中使用前导和末尾小数点（默认关闭）
+    "no-implied-eval": 1,            // 禁止使用类似 eval() 的方法
+    "no-labels": 1,                  // 禁用标签语句
+    "no-iterator": 1,                // 禁用 __iterator__ 属性
+    "no-lone-blocks": 2,             // 禁用不必要的嵌套块
+    "no-loop-func": 0,               // 禁止在循环中出现 function 声明和表达式
+    "no-multi-str": 1,               // 禁止使用多行字符串
+    "no-native-reassign": 1,         // 不能重写 native 对象
+    "no-new": 2,                     // /禁止在使用 new 构造一个实例后不赋值
+    "no-new-func": 2,                // 禁止对 Function 对象使用 new 操作符
+    "no-new-wrappers": 2,            // 禁止对 String，Number 和 Boolean 使用 new 操作符
+    "no-octal": 1,                   // 禁用八进制字面量
+    "no-octal-escape": 1,            // 禁止在字符串中使用八进制转义序列, 例如 var foo = "Copyright \251";
+    "no-proto": 1,                   // 禁用 __proto__ 属性
+    "no-redeclare": 1,              // 禁止多次声明同一变量
+    "no-return-assign": 1,           // 禁止在 return 语句中使用赋值语句
+    "no-script-url": 2,              // 禁止使用 javascript: url
+    "no-self-compare": 2,            // 禁止自身比较
+    "no-sequences": 1,               // 禁用逗号操作符
+    "no-unused-expressions": 1,      // 禁止出现未使用过的表达式
+    "no-void": 1,                    // 禁用 void 操作符 (off by default)
+    "no-warning-comments": 0,        // 禁止在注释中使用特定的警告术语                      // e.g. TODO or FIXME (off by default)
+    "no-with": 1,                    // 禁用 with 语句
+    "radix": 1,                      // 强制在parseInt()使用基数参数 (off by default)
+    "semi-spacing": 1,	             // 强制分号之前和之后使用一致的空格
+    "vars-on-top": 1,                // 要求所有的 var 声明出现在它们所在的作用域顶部 (off by default)
+    "wrap-iife": 1,                  // 要求 IIFE 使用括号括起来 (off by default)
+    "yoda": 1,                       // 要求或禁止 “Yoda” 条件
     
     // Variables
     // These rules have to do with variable declarations.
