@@ -26,7 +26,6 @@ export default class App extends Component<{}> {
     this.getAlertHandler = this.getAlertHandler.bind(this);
   }
   getAlertHandler() {
-    // console.log('NativeModules',NativeModules.CalendarManager);
     NativeModules.CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
   }
   callAlert() {
