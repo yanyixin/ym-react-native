@@ -60,9 +60,7 @@ module.exports = {
     
     // General
     
-    // This must be disallowed in this repo because the minimum supported
-    // version of node is 4 which doesn't support trailing commas.
-    // Once the minimum supported version is 8 or greater this can be changed
+    // 下面规则的具体含义参见 http://eslint.cn/docs/rules/no-extra-parens
     "comma-dangle": [2, {            // disallow trailing commas in object literals
       "arrays": "ignore",
       "objects": "ignore",
@@ -71,32 +69,32 @@ module.exports = {
       "functions": "never"
     }],
     
-    "no-cond-assign": 1,             // disallow assignment in conditional expressions
-    "no-console": 0,                 // disallow use of console (off by default in the node environment)
-    "no-const-assign": 2,            // disallow assignment to const-declared variables
-    "no-constant-condition": 0,      // disallow use of constant expressions in conditions
-    "no-control-regex": 1,           // disallow control characters in regular expressions
-    "no-debugger": 1,                // disallow use of debugger
-    "no-dupe-keys": 1,               // disallow duplicate keys when creating object literals
-    "no-empty": 0,                   // disallow empty statements
-    "no-ex-assign": 1,               // disallow assigning to the exception in a catch block
-    "no-extra-boolean-cast": 1,      // disallow double-negation boolean casts in a boolean context
-    "no-extra-parens": 0,            // disallow unnecessary parentheses (off by default)
-    "no-extra-semi": 1,              // disallow unnecessary semicolons
-    "no-func-assign": 1,             // disallow overwriting functions written as function declarations
-    "no-inner-declarations": 0,      // disallow function or variable declarations in nested blocks
-    "no-invalid-regexp": 1,          // disallow invalid regular expression strings in the RegExp constructor
-    "no-negated-in-lhs": 1,          // disallow negation of the left operand of an in expression
-    "no-obj-calls": 1,               // disallow the use of object properties of the global object (Math and JSON) as functions
-    "no-regex-spaces": 1,            // disallow multiple spaces in a regular expression literal
+    "no-cond-assign": 1,             // 禁止条件表达式中出现赋值操作符，比如 if (age = 16){}
+    "no-console": 0,                 // 不允许使用 console (在 node 环境中默认关闭)
+    "no-const-assign": 2,            // 禁止修改 const 声明的变量
+    "no-constant-condition": 0,      // 禁止在条件中使用常量表达式
+    "no-control-regex": 1,           // 禁止在正则表达式中使用控制字符
+    "no-debugger": 1,                // 禁止使用 debugger
+    "no-dupe-keys": 1,               // 在创建对象字面量时不允许键重复 {a:1,a:1}
+    "no-empty": 0,                   // 块语句中的内容不能为空
+    "no-ex-assign": 1,               // 禁止给 catch 语句中的异常参数赋值
+    "no-extra-boolean-cast": 1,      // 禁止不必要的布尔类型转换，参见 http://eslint.cn/docs/rules/no-extra-boolean-cast
+    "no-extra-parens": 0,            // 禁止不必要的括号（默认关闭）
+    "no-extra-semi": 1,              // 禁用不必要的分号
+    "no-func-assign": 1,             // 禁止对 function 声明重新赋值
+    "no-inner-declarations": 1,      // 禁止在嵌套的块中出现变量声明或 function 声明
+    "no-invalid-regexp": 1,          // 禁止 RegExp 构造函数中存在无效的正则表达式字符串
+    "no-negated-in-lhs": 1,          // in 操作符的左边不能有!
+    "no-obj-calls": 2,               // 禁止把全局对象作为函数调用
+    "no-regex-spaces": 1,            // 禁止正则表达式字面量中出现多个空格
     "no-reserved-keys": 0,           // disallow reserved words being used as object literal keys (off by default)
-    "no-sparse-arrays": 1,           // disallow sparse arrays
-    "no-unreachable": 1,             // disallow unreachable statements after a return, throw, continue, or break statement
-    "use-isnan": 1,                  // disallow comparisons with the value NaN
-    "valid-jsdoc": 0,                // Ensure JSDoc comments are valid (off by default)
-    "valid-typeof": 1,               // Ensure that the results of typeof are compared against a valid string
+    "no-sparse-arrays": 2,           // 禁用稀疏数组，比如：var colors = [ "red",, "blue" ];
+    "no-unreachable": 2,             // 禁止在return、throw、continue 和 break 语句之后出现不可达代码
+    "use-isnan": 2,                  // 要求使用 isNaN() 检查 NaN
+    "valid-jsdoc": 0,                // 强制使用有效的 JSDoc 注释（默认关闭）
+    "valid-typeof": 2,               // 强制 typeof 表达式与有效的字符串进行比较
     
-    // Best Practices
+    // 最佳实践
     // These are rules designed to prevent you from making mistakes. They either prescribe a better way of doing something or help you avoid footguns.
     
     "block-scoped-var": 0,           // treat var statements as if they were block scoped (off by default)
