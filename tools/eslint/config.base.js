@@ -2,7 +2,7 @@ module.exports = {
   "root": true,
   
   "parser": "babel-eslint", // 使用的解析器
-  
+  "extends": "airbnb",
   "env": {
     "es6": true // 支持除模块外所有 ECMAScript 6 特性（该选项会自动设置 ecmaVersion 解析器选项为 6）
   },
