@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "ios": "eslint --ext .js ./src --fix && react-native run-ios",
-    "android": "eslint --ext .js ./src --fix && react-native run-android",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
     "lint:create": "eslint --init",
-    "lint": "eslint --ext .js ./src --fix"
+    "lint": "eslint --ext .js ./src --fix",
+    "ios": "NODE_ENV=dev npm run lint && react-native run-ios",
+    "android": "NODE_ENV=dev npm run lint && react-native run-android",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+
   },
   "dependencies": {
     "babel-eslint": "^8.0.2",
