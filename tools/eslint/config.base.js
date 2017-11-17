@@ -2,7 +2,7 @@ module.exports = {
   "root": true,
   
   "parser": "babel-eslint", // 使用的解析器
-  
+  "extends": "airbnb",
   "env": {
     "es6": true // 支持除模块外所有 ECMAScript 6 特性（该选项会自动设置 ecmaVersion 解析器选项为 6）
   },
@@ -100,7 +100,7 @@ module.exports = {
     "no-unreachable": 2,             // 禁止在return、throw、continue 和 break 语句之后出现不可达代码
     "use-isnan": 2,                  // 要求使用 isNaN() 检查 NaN
     "valid-typeof": 2,               // 强制 typeof 表达式与有效的字符串进行比较
-    
+    "class-methods-use-this": 0,
     // 这些规则是关于最佳实践的，帮助你避免一些问题:
     
     "block-scoped-var": 1,           // 强制把变量的使用限制在其定义的作用域范围内（默认关闭）
@@ -245,6 +245,7 @@ module.exports = {
     "react/react-in-jsx-scope": 2, // 防止使用 jsx 时没有引用 react
     "react/self-closing-comp": 1, // 没有内容的组件可以用单闭合标签
     "react/wrap-multilines": 0, // 防止有多行 jsx 时没有加圆括号
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-no-bind": 1 // 不在 jsx 中使用 bind
   }
 };

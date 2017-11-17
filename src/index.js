@@ -14,6 +14,7 @@ import {
   Alert,
   NativeModules
 } from 'react-native';
+import TextRender from './page/Home';
 
 const instructions = Platform.select({
   ios: '这是 ios',
@@ -24,22 +25,24 @@ export default class App extends Component<{}> {
   constructor(props) {
     super(props);
     this.getAlertHandler = this.getAlertHandler.bind(this);
+    this.callAlert = this.callAlert.bind(this);
   }
   getAlertHandler() {
     NativeModules.CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
   }
   callAlert() {
-    Alert.alert('提示','我是弹窗');
+    Alert.alert('提示', '我是弹窗');
   }
   render() {
     return (
       <View style={styles.container}>
         <Button
           onPress={this.getAlertHandler}
-          title="点我调用原生组件"
+          title="点我调用原生组件13"
         />
+        <TextRender />
         <Button
-          onPress={this.callAlert.bind(this)}
+          onPress={this.callAlert}
           title="点我唤起 RN 的弹窗"
         />
         <Text style={styles.instructions}>
