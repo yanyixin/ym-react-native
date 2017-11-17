@@ -100,7 +100,7 @@ module.exports = {
     "no-unreachable": 2,             // 禁止在return、throw、continue 和 break 语句之后出现不可达代码
     "use-isnan": 2,                  // 要求使用 isNaN() 检查 NaN
     "valid-typeof": 2,               // 强制 typeof 表达式与有效的字符串进行比较
-    
+    "class-methods-use-this": 0,
     // 这些规则是关于最佳实践的，帮助你避免一些问题:
     
     "block-scoped-var": 1,           // 强制把变量的使用限制在其定义的作用域范围内（默认关闭）
