@@ -245,6 +245,6 @@ module.exports = {
     "react/self-closing-comp": 1, // 没有内容的组件可以用单闭合标签
     "react/wrap-multilines": 0, // 防止有多行 jsx 时没有加圆括号
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-no-bind": 1 // 不在 jsx 中使用 bind
+    "react/jsx-no-bind": 2 // 不在 jsx 中使用 bind
   }
 };
