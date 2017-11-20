@@ -34,6 +34,7 @@ export default class App extends Component<{}> {
     Alert.alert('提示', '我是弹窗');
   }
   render() {
+    // todo 添加 icon font
     return (
       <View style={styles.container}>
         <Button
