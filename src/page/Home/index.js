@@ -18,14 +18,14 @@ export default class TextRender extends Component<{}> {
   }
   
   showName() {
-  
+    let name = 'ym';
+    if (name = 'jj') {
+      console.log('wrong');
+    }
   }
   
   addName() {
-    let name = 'ym';
-    if(name = 'jj') {
-      console.log('wrong');
-    }
+  
   }
   
   render() {
