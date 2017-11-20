@@ -11,9 +11,8 @@
     "test": "jest",
     "prettier": "find . -name node_modules -prune -or -name '*.js' -print | xargs prettier --write",
     "precommit": "lint-staged",
-    "lint-staged": "lint-staged"
   },
-  "pre-commit": "lint",
+  "pre-commit": "lint-staged",
   "lint-staged": {
     "src/**/*.js": [
       "prettier --single-quote --write",

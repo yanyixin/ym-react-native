@@ -15,7 +15,6 @@ export default class TextRender extends Component<{}> {
   constructor(props) {
     super(props);
     this.showName = this.showName.bind(this);
-    
   }
   
   showName() {
@@ -23,10 +22,10 @@ export default class TextRender extends Component<{}> {
   }
   
   addName() {
-    // let name = 'ym';
-    // if(name = 'jj') {
-    //   console.log('wrong');
-    // }
+    let name = 'ym';
+    if(name = 'jj') {
+      console.log('wrong');
+    }
   }
   
   render() {
