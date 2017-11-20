@@ -10,8 +10,7 @@ module.exports = {
   "plugins": [
     "flowtype",
     "prettier",
-    "react",
-    "import"
+    "react"
   ],
   "parserOptions": {
     "ecmaVersion": 6, // ECMA6

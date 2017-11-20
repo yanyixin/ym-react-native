@@ -8,12 +8,27 @@
     "ios": "NODE_ENV=dev npm run lint && react-native run-ios",
     "android": "NODE_ENV=dev npm run lint && react-native run-android",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "prettier": "find . -name node_modules -prune -or -name '*.js' -print | xargs prettier --write",
+    "precommit": "lint-staged",
+    "lint-staged": "lint-staged"
   },
-  "pre-commit": [
-    "lint"
-  ],
-  "precommit.silent": true,
+  "pre-commit": "lint",
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --single-quote --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "requirePragma": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": false,
+    "jsxBracketSameLine": true,
+    "parser": "flow"
+  },
   "dependencies": {
     "babel-eslint": "^8.0.2",
     "eslint": "^4.11.0",
@@ -22,6 +37,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^5.0.0",
     "pre-commit": "^1.2.2",
+    "prettier": "^1.8.2",
     "react": "16.0.0",
     "react-native": "0.50.1"
   },
