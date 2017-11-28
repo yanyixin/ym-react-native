@@ -1,41 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as Actions from './app/actions';
+import App from './app/view';
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+const mapStateToProps = state => ({ ...state });
 
-const instructions = Platform.select({
-  ios: '这是 ios',
-  android: '这是 android',
-});
+const mapDispatchToProps = dispatch => bindActionCreators({
+  ...Actions,
+}, dispatch);
 
-export default class AboutMe extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>关于我</Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -3,10 +3,10 @@ import * as ActionTypes from './actionTypes';
 
 export default function AppReducer(state = initialState, action) {
   switch (action.type) {
-    case ActionTypes.APP_TYPE:
+    case ActionTypes.USER_NAME:
       return {
         ...state,
-        user: 'yuewen',
+        userName: 'ym',
       };
     default:
       return state;

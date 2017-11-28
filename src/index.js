@@ -9,11 +9,12 @@ import {
   View,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
+import { Provider } from 'react-redux';
 import Home from './page/Home';
 import AboutMe from './page/AboutMe';
+import store from './store';
 
-const myWrapper = StackNavigator({
+const MyWrapper = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
@@ -27,10 +28,15 @@ const myWrapper = StackNavigator({
       headerTruncatedBackTitle: '返回',
     },
   },
-}, {
-  initialRouteName: 'Home',
-  mode: 'card',
-  headerMode: 'screen'
 });
 
-export default myWrapper;
+export default class App extends Component<{}> {
+  render() {
+    return (
+      <Provider store={store}>
+        <MyWrapper />
+      </Provider>
+    );
+  }
+}
+
