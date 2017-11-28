@@ -17,18 +17,20 @@ const myWrapper = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      headerTitle: '主页',
+      title: '主页',
     },
   },
   AboutMe: {
     screen: AboutMe,
     navigationOptions: {
-      headerTitle: '关于我',
-      headerBackTitle: '返回',
+      title: '关于我',
+      headerTruncatedBackTitle: '返回',
     },
   },
 }, {
-  mode: 'modal',
+  initialRouteName: 'Home',
+  mode: 'card',
+  headerMode: 'screen'
 });
 
 export default myWrapper;
