@@ -11,6 +11,7 @@ import {
   Button,
   Alert,
   NativeModules,
+  Text,
 } from 'react-native';
 
 
@@ -19,6 +20,7 @@ export default class App extends Component<{}> {
     super(props);
     this.getAlertHandler = this.getAlertHandler.bind(this);
     this.callAlert = this.callAlert.bind(this);
+    this.goAboutMe = this.goAboutMe.bind(this)
   }
 
   getAlertHandler() {
@@ -28,14 +30,19 @@ export default class App extends Component<{}> {
   callAlert() {
     Alert.alert('提示', '我是弹窗');
   }
+  
+  goAboutMe() {
+    this.props.navigation.navigate('AboutMe')
+  }
 
   render() {
     // todo 添加 icon font
     return (
       <View style={styles.container}>
-        <Button onPress>
-          跳到"关于我"页面
-        </Button>
+        <Button
+          onPress={this.goAboutMe}
+          title="点我跳到关于我的页面"
+        />
         <Button
           onPress={this.getAlertHandler}
           title="点我调用原生组件13"
