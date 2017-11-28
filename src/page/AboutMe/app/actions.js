@@ -1,8 +1,8 @@
 
 import * as ActionTypes from './actionTypes';
 
-export function getAppName() {
+export function getUser() {
   return {
-    type: ActionTypes.APP_TYPE,
+    type: ActionTypes.USER_NAME,
   };
 }
