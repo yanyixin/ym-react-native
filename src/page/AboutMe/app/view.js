@@ -19,8 +19,8 @@ const instructions = Platform.select({
 
 export default class AboutMe extends Component<{}> {
   render() {
-    console.log('AboutMe props---',this.props);
-  
+    console.log('AboutMe props---', this.props);
+
     return (
       <View style={styles.container}>
         <Text>关于我</Text>
