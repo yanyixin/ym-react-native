@@ -23,7 +23,7 @@ export default class AboutMe extends Component<{}> {
 
     return (
       <View style={styles.container}>
-        <Text>关于我</Text>
+        <Text>关于我123</Text>
         <Text style={styles.instructions}>
           {instructions}
         </Text>

@@ -13,5 +13,15 @@ const rootReducer = combineReducers({
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
-const store = createStoreWithMiddleware(rootReducer);
-export default store;
+export default function configureStore(initialState) {
+  const store = createStoreWithMiddleware(rootReducer, initialState);
+
+  // 热替换选项
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept(rootReducer, () => {
+      store.replaceReducer(rootReducer);
+    });
+  }
+  return store;
+}
