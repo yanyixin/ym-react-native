@@ -35,7 +35,7 @@ export default class App extends Component<{}> {
   }
 
   render() {
-    console.log('Home props---',this.props);
+    console.log('Home props---', this.props);
     return (
       <View style={styles.container}>
         <Button
