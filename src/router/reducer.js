@@ -10,9 +10,9 @@ const initialNavState = RootNavigator.router.getStateForAction(
   secondAction,
   tempNavState,
 );
+
 export default function nav(state = initialNavState, action) {
   let nextState;
-  console.log('action---', action);
   switch (action.type) {
     case 'Home':
     case 'AboutMe':

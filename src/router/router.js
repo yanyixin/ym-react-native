@@ -17,6 +17,9 @@ const RootNavigator = StackNavigator({
       headerTruncatedBackTitle: '返回',
     },
   },
+}, {
+  initialRouteName: 'Home',
+  mode: 'mode'
 });
 
 export default RootNavigator;
