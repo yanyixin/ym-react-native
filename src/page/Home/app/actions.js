@@ -1,8 +1,8 @@
 
-import * as ActionTypes from './actionTypes';
+import * as ActionTypes from './actionTypes'
 
-export function getAppName() {
+export function getAppName () {
   return {
-    type: ActionTypes.APP_TYPE,
-  };
+    type: ActionTypes.APP_TYPE
+  }
 }
