@@ -12,6 +12,7 @@ import {
   Alert,
   NativeModules
 } from 'react-native'
+import {SafeAreaView} from 'react-navigation'
 
 export default class App extends Component<{}> {
   constructor (props) {
@@ -37,18 +38,11 @@ export default class App extends Component<{}> {
     console.log('Home props---', this.props)
     return (
       <View style={styles.container}>
-        <Button
-          onPress={this.goAboutMe}
-          title='点我跳到关于我的页面'
-        />
-        <Button
-          onPress={this.getAlertHandler}
-          title='点我调用原生组件13'
-        />
-        <Button
-          onPress={this.callAlert}
-          title='点我唤起 RN 的弹窗'
-        />
+        <SafeAreaView forceInset={{ horizontal: 'always' }}>
+          <Button onPress={this.goAboutMe} title='点我跳到关于我的页面' />
+          <Button onPress={this.getAlertHandler} title='点我调用原生组件13' />
+          <Button onPress={this.callAlert} title='点我唤起 RN 的弹窗' />
+        </SafeAreaView>
       </View>
     )
   }
@@ -57,9 +51,7 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: 'pink'
   },
   welcome: {
     fontSize: 20,
