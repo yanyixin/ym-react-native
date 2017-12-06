@@ -1,8 +1,8 @@
 
-import * as ActionTypes from './actionTypes';
+import * as ActionTypes from './actionTypes'
 
-export function getUser() {
+export function getUser () {
   return {
-    type: ActionTypes.USER_NAME,
-  };
+    type: ActionTypes.USER_NAME
+  }
 }

@@ -1,5 +1,5 @@
 const initialState = {
-  appName: 'ym',
-};
+  appName: 'ym'
+}
 
-export default initialState;
+export default initialState

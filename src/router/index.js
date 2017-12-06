@@ -1,5 +1,5 @@
-import router from './router';
-import reducer from './reducer';
-import view from './view';
+import router from './router'
+import reducer from './reducer'
+import view from './view'
 
-export { router, reducer, view };
+export { router, reducer, view }
