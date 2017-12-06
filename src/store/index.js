@@ -18,6 +18,7 @@ export default function configureStore (initialState) {
 
   // 热替换选项
   if (module.hot) {
+  	console.log('hot--')
     // Enable Webpack hot module replacement for reducers
     module.hot.accept(rootReducer, () => {
       store.replaceReducer(rootReducer)

@@ -10,8 +10,11 @@ import {
   View,
   Button,
   Alert,
-  NativeModules
+  NativeModules,
+	Text,
+	ScrollView
 } from 'react-native'
+import {SafeAreaView} from 'react-navigation'
 
 export default class App extends Component<{}> {
   constructor (props) {
@@ -36,20 +39,30 @@ export default class App extends Component<{}> {
   render () {
     console.log('Home props---', this.props)
     return (
-      <View style={styles.container}>
-        <Button
-          onPress={this.goAboutMe}
-          title='点我跳到关于我的页面'
-        />
-        <Button
-          onPress={this.getAlertHandler}
-          title='点我调用原生组件13'
-        />
-        <Button
-          onPress={this.callAlert}
-          title='点我唤起 RN 的弹窗'
-        />
-      </View>
+	    <SafeAreaView forceInset={{horizontal: 'always', vertical: 'always'}}  style={styles.container}>
+	      <ScrollView>
+				    <Button onPress={this.goAboutMe} title='点我跳到关于我的页面' />
+				    <Button onPress={this.getAlertHandler} title='点我调用原生组件13' />
+				    <Button onPress={this.callAlert} title='点我唤起 RN 的弹窗' />
+				    <View>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+					    <Text style={styles.textWrapper}>我是内容</Text>
+				    </View>
+			    </ScrollView>
+	    </SafeAreaView>
     )
   }
 }
@@ -57,9 +70,7 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: 'pink'
   },
   welcome: {
     fontSize: 20,
@@ -70,5 +81,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5
-  }
+  },
+	textWrapper: {
+  	fontSize: 50
+	}
 })

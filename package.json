@@ -7,7 +7,7 @@
     "lint": "eslint --ext .js ./src --fix",
     "ios": "NODE_ENV=dev npm run lint && react-native run-ios",
     "android": "NODE_ENV=dev npm run lint && react-native run-android",
-    "ios-max": "NODE_ENV=dev npm run lint && react-native run-ios --simulator='iPhone X'",
+    "ios-max": "npm run standard && react-native run-ios --simulator='iPhone X'",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "prettier": "prettier src/**/**/*.js --write",

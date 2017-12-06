@@ -6,10 +6,7 @@ const firstAction = RootNavigator.router.getActionForPathAndParams('Home')
 const tempNavState = RootNavigator.router.getStateForAction(firstAction)
 const secondAction = RootNavigator.router.getActionForPathAndParams('AboutMe')
 
-const initialNavState = RootNavigator.router.getStateForAction(
-  secondAction,
-  tempNavState
-)
+const initialNavState = RootNavigator.router.getStateForAction(firstAction, tempNavState)
 
 export default function nav (state = initialNavState, action) {
   let nextState
