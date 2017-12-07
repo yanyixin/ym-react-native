@@ -25,6 +25,11 @@
       "/__tests__"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "16.0.0",
@@ -49,10 +54,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
