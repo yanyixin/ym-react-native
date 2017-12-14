@@ -39,26 +39,12 @@ export default class App extends Component<{}> {
   render () {
     console.log('Home props---', this.props)
     return (
-	    <SafeAreaView forceInset={{horizontal: 'always', vertical: 'always'}}  style={styles.container}>
+	    <SafeAreaView forceInset={{horizontal: 'always', vertical: 'always'}} style={styles.container}>
 	      <ScrollView>
 				    <Button onPress={this.goAboutMe} title='点我跳到关于我的页面' />
 				    <Button onPress={this.getAlertHandler} title='点我调用原生组件13' />
 				    <Button onPress={this.callAlert} title='点我唤起 RN 的弹窗' />
 				    <View>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-					    <Text style={styles.textWrapper}>我是内容</Text>
 					    <Text style={styles.textWrapper}>我是内容</Text>
 				    </View>
 			    </ScrollView>
@@ -82,7 +68,7 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5
   },
-	textWrapper: {
-  	fontSize: 50
-	}
+  textWrapper: {
+  	fontSize: 20
+  }
 })

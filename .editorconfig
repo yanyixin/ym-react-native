@@ -5,7 +5,8 @@ root = true
 
 # 对所有文件生效
 [*]
-indent_style = tab
+indent_style = space
+indent_size = 2
 
 # 是否在最后一行加上空格
 insert_final_newline = true
