@@ -35,7 +35,7 @@ export default class AboutMe extends PureComponent<{}> {
     return item.id
   }
 
-  getItemLayout = ({data, index}) => ({
+  getItemLayout = (data, index) => ({
     length: 44,
     offset: 44 * index,
     index
