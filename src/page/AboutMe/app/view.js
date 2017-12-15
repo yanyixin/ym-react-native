@@ -26,7 +26,7 @@ export default class AboutMe extends PureComponent<{}> {
     this.state = {
       data: []
     }
-    this.sendRequest()
+    this.getData()
   }
 
   renderItem = ({item}) => {
@@ -34,15 +34,17 @@ export default class AboutMe extends PureComponent<{}> {
     return (
       <View style={styles.itemWrapper} key={id}>
         <Text>{desc}</Text>
-        <Text>{name}</Text>
+        <Text style={styles.itemText}>{name}</Text>
       </View>
     )
   }
 
-  sendRequest() {
+  getData = () => {
     fetch('https://www.easy-mock.com/mock/5a33e031e0069f2d35a263dc/ymMock/getTodoList').then(res => {
       const {data:{item}} = JSON.parse(res._bodyText)
-      this.setState({ data: item })
+      this.setState(state => ({
+        data: state.data.concat(item)
+      }))
     }).catch(e => {
       console.warn('请求错误', e)
     })
@@ -58,6 +60,7 @@ export default class AboutMe extends PureComponent<{}> {
 
   render () {
     const {data} = this.state
+    console.log('this.state', data)
     return (
       <View style={styles.container}>
         <Text>关于我123</Text>
@@ -70,6 +73,7 @@ export default class AboutMe extends PureComponent<{}> {
           data={data}
           renderItem={this.renderItem}
           getItemLayout={this.getItemLayout}
+          onEndReached={this.getData}
         />
       </View>
     )
@@ -87,5 +91,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink',
     marginBottom: 10,
     flex: 1
+  },
+  itemText: {
+    fontSize: 30
   }
 })
