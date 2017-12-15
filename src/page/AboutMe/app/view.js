@@ -20,6 +20,15 @@ const instructions = Platform.select({
 })
 
 export default class AboutMe extends PureComponent<{}> {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: []
+    }
+    this.sendRequest()
+  }
+
   renderItem = ({item}) => {
     const {id, desc, name} = item
     return (
@@ -30,10 +39,16 @@ export default class AboutMe extends PureComponent<{}> {
     )
   }
 
-  createKey = (item) => {
-    console.log('mockData', item)
-    return item.id
+  sendRequest() {
+    fetch('https://www.easy-mock.com/mock/5a33e031e0069f2d35a263dc/ymMock/getTodoList').then(res => {
+      const {data:{item}} = JSON.parse(res._bodyText)
+      this.setState({ data: item })
+    }).catch(e => {
+      console.warn('请求错误', e)
+    })
   }
+
+  createKey = (item) => item.id
 
   getItemLayout = (data, index) => ({
     length: 44,
@@ -42,7 +57,7 @@ export default class AboutMe extends PureComponent<{}> {
   })
 
   render () {
-    console.log('AboutMe props---', this.props)
+    const {data} = this.state
     return (
       <View style={styles.container}>
         <Text>关于我123</Text>
@@ -52,7 +67,7 @@ export default class AboutMe extends PureComponent<{}> {
         <FlatList
           keyExtractor={this.createKey}
           onEndReachedThreshold={0.25}
-          data={mockData}
+          data={data}
           renderItem={this.renderItem}
           getItemLayout={this.getItemLayout}
         />
