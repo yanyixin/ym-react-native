@@ -22,6 +22,7 @@ export default class App extends Component<{}> {
     this.getAlertHandler = this.getAlertHandler.bind(this)
     this.callAlert = this.callAlert.bind(this)
     this.goAboutMe = this.goAboutMe.bind(this)
+    
   }
 
   getAlertHandler () {

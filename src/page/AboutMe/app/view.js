@@ -24,7 +24,8 @@ export default class AboutMe extends PureComponent<{}> {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      loading: true
     }
     this.getData()
   }
@@ -40,10 +41,12 @@ export default class AboutMe extends PureComponent<{}> {
   }
 
   getData = () => {
+    console.log('发送请求')
     fetch('https://www.easy-mock.com/mock/5a33e031e0069f2d35a263dc/ymMock/getTodoList').then(res => {
       const {data:{item}} = JSON.parse(res._bodyText)
       this.setState(state => ({
-        data: state.data.concat(item)
+        data: state.data.concat(item),
+        loading: false
       }))
     }).catch(e => {
       console.warn('请求错误', e)
@@ -59,7 +62,7 @@ export default class AboutMe extends PureComponent<{}> {
   })
 
   render () {
-    const {data} = this.state
+    const {data, loading} = this.state
     console.log('this.state', data)
     return (
       <View style={styles.container}>
@@ -67,14 +70,18 @@ export default class AboutMe extends PureComponent<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
-        <FlatList
-          keyExtractor={this.createKey}
-          onEndReachedThreshold={0.25}
-          data={data}
-          renderItem={this.renderItem}
-          getItemLayout={this.getItemLayout}
-          onEndReached={this.getData}
-        />
+        { loading ?
+          <Text style={styles.loadingStyle}>正在加载中 ......</Text>   
+          :
+          <FlatList
+            keyExtractor={this.createKey}
+            onEndReachedThreshold={0.25}
+            data={data}
+            renderItem={this.renderItem}
+            getItemLayout={this.getItemLayout}
+            onEndReached={this.getData}
+          />
+        }
       </View>
     )
   }
@@ -86,6 +93,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF'
+  },
+  loadingStyle: {
+    fontSize: 25
   },
   itemWrapper: {
     backgroundColor: 'pink',
