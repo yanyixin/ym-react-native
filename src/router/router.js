@@ -8,14 +8,13 @@ const RootNavigator = StackNavigator({
     screen: Home,
     navigationOptions: {
       title: '主页',
-	    header: null
+	   
     }
   },
   AboutMe: {
     screen: AboutMe,
     navigationOptions: {
-      title: '关于我',
-      headerTruncatedBackTitle: '返回'
+      header: null
     }
   }
 }, {

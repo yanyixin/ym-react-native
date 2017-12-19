@@ -13,6 +13,7 @@ import {
   FlatList
 } from 'react-native'
 import mockData from 'ymReactNative/json/mock'
+import Header from 'ymReactNative/src/components/Header'
 
 const instructions = Platform.select({
   ios: '这是 ios',
@@ -66,16 +67,17 @@ export default class AboutMe extends PureComponent<{}> {
     console.log('this.state', data)
     return (
       <View style={styles.container}>
-        <Text>关于我123</Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Header 
+          isTranslucent
+          backgroundColor="pink" 
+          barStyle="dark-content"
+        />
         { loading ?
           <Text style={styles.loadingStyle}>正在加载中 ......</Text>   
           :
           <FlatList
             keyExtractor={this.createKey}
-            onEndReachedThreshold={0.25}
+            onEndReachedThreshold={0.35}
             data={data}
             renderItem={this.renderItem}
             getItemLayout={this.getItemLayout}
