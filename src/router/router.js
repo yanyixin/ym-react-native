@@ -14,7 +14,7 @@ const RootNavigator = StackNavigator({
   AboutMe: {
     screen: AboutMe,
     navigationOptions: {
-      header: null
+      // header: null
     }
   }
 }, {

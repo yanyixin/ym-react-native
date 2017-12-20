@@ -12,7 +12,8 @@ import {
   Alert,
   NativeModules,
 	Text,
-	ScrollView
+  ScrollView,
+  WebView
 } from 'react-native'
 import {SafeAreaView} from 'react-navigation'
 
@@ -37,6 +38,15 @@ export default class App extends Component<{}> {
     this.props.navigation.navigate('AboutMe')
   }
 
+  showWebView = () => {
+    return (
+      <WebView
+        source={{uri: 'https://www.taobao.com'}}
+        scalesPageToFit
+      />
+    )
+  }
+
   render () {
     console.log('Home props---', this.props)
     return (
@@ -48,7 +58,9 @@ export default class App extends Component<{}> {
 				    <View>
 					    <Text style={styles.textWrapper}>我是内容</Text>
 				    </View>
+				    <Button onPress={this.showWebView} title='点我打开 WebView' />            
 			    </ScrollView>
+          
 	    </SafeAreaView>
     )
   }
