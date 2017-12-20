@@ -17,6 +17,8 @@ import {
 } from 'react-native'
 import {SafeAreaView} from 'react-navigation'
 
+const WEBVIEW_REF = 'webview';
+
 export default class App extends Component<{}> {
   constructor (props) {
     super(props)
@@ -39,12 +41,8 @@ export default class App extends Component<{}> {
   }
 
   showWebView = () => {
-    return (
-      <WebView
-        source={{uri: 'https://www.taobao.com'}}
-        scalesPageToFit
-      />
-    )
+    console.log('this.refs[WEBVIEW_REF]', this.refs[WEBVIEW_REF])
+    this.refs[WEBVIEW_REF].goForward();
   }
 
   render () {
@@ -58,9 +56,18 @@ export default class App extends Component<{}> {
 				    <View>
 					    <Text style={styles.textWrapper}>我是内容</Text>
 				    </View>
-				    <Button onPress={this.showWebView} title='点我打开 WebView' />            
+				    <Button onPress={this.showWebView} title='点我打开 WebView' /> 
+            <WebView
+              ref={WEBVIEW_REF}
+              source={{html:"<h1 style='color:#ff0000'>欢迎访问 hangge.com</h1>"}}
+              startInLoadingState={true}
+              domStorageEnabled={true}
+              scalesPageToFit={true}
+              bounces={false}
+              javaScriptEnabled={true}
+              automaticallyAdjustContentInsets={true}
+            />           
 			    </ScrollView>
-          
 	    </SafeAreaView>
     )
   }
