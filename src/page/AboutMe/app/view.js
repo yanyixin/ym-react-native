@@ -21,8 +21,7 @@ const instructions = Platform.select({
 })
 
 export default class AboutMe extends PureComponent<{}> {
-
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       data: [],
@@ -44,7 +43,7 @@ export default class AboutMe extends PureComponent<{}> {
   getData = () => {
     console.log('发送请求')
     fetch('https://www.easy-mock.com/mock/5a33e031e0069f2d35a263dc/ymMock/getTodoList').then(res => {
-      const {data:{item}} = JSON.parse(res._bodyText)
+      const {data: {item}} = JSON.parse(res._bodyText)
       this.setState(state => ({
         data: state.data.concat(item),
         loading: false
@@ -67,15 +66,14 @@ export default class AboutMe extends PureComponent<{}> {
     console.log('this.state', data)
     return (
       <View style={styles.container}>
-        <Header 
+        <Header
           isTranslucent
-          backgroundColor="pink" 
+          backgroundColor="pink"
           barStyle="dark-content"
         />
-        { loading ?
-          <Text style={styles.loadingStyle}>正在加载中 ......</Text>   
-          :
-          <FlatList
+        { loading
+          ? <Text style={styles.loadingStyle}>正在加载中 ......</Text>
+          : <FlatList
             keyExtractor={this.createKey}
             onEndReachedThreshold={0.35}
             data={data}

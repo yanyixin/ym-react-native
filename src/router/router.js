@@ -7,15 +7,12 @@ const RootNavigator = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
-      title: '主页',
-	   
+      title: '主页'
+
     }
   },
   AboutMe: {
-    screen: AboutMe,
-    navigationOptions: {
-      // header: null
-    }
+    screen: AboutMe
   }
 }, {
   initialRouteName: 'Home',

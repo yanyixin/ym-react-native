@@ -13,11 +13,12 @@ import {
   NativeModules,
 	Text,
   ScrollView,
-  WebView
+  WebView,
+  Animated
 } from 'react-native'
 import {SafeAreaView} from 'react-navigation'
 
-const WEBVIEW_REF = 'webview';
+const WEBVIEW_REF = 'webview'
 
 export default class App extends Component<{}> {
   constructor (props) {
@@ -25,7 +26,9 @@ export default class App extends Component<{}> {
     this.getAlertHandler = this.getAlertHandler.bind(this)
     this.callAlert = this.callAlert.bind(this)
     this.goAboutMe = this.goAboutMe.bind(this)
-    
+    this.state = {
+      url: 'https://www.baidu.com'
+    }
   }
 
   getAlertHandler () {
@@ -42,11 +45,12 @@ export default class App extends Component<{}> {
 
   showWebView = () => {
     console.log('this.refs[WEBVIEW_REF]', this.refs[WEBVIEW_REF])
-    this.refs[WEBVIEW_REF].goForward();
+    this.refs[WEBVIEW_REF].goForward()
   }
 
   render () {
     console.log('Home props---', this.props)
+    const {url} = this.state
     return (
 	    <SafeAreaView forceInset={{horizontal: 'always', vertical: 'always'}} style={styles.container}>
 	      <ScrollView>
@@ -56,18 +60,20 @@ export default class App extends Component<{}> {
 				    <View>
 					    <Text style={styles.textWrapper}>我是内容</Text>
 				    </View>
-				    <Button onPress={this.showWebView} title='点我打开 WebView' /> 
-            <WebView
+				    <Button onPress={this.showWebView} title='点我打开 WebView' />
+			    </ScrollView>
+          <View style={{flex: 1}}>
+            <WebView
               ref={WEBVIEW_REF}
-              source={{html:"<h1 style='color:#ff0000'>欢迎访问 hangge.com</h1>"}}
+              source={{uri: url}}
               startInLoadingState={true}
               domStorageEnabled={true}
               scalesPageToFit={true}
               bounces={false}
               javaScriptEnabled={true}
               automaticallyAdjustContentInsets={true}
-            />           
-			    </ScrollView>
+            />
+          </View>
 	    </SafeAreaView>
     )
   }

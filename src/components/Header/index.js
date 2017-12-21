@@ -4,8 +4,8 @@ import {
   StatusBar, View
 } from 'react-native'
 
-export default class Header extends Component<{}>{ 
-  constructor(props) {
+export default class Header extends Component<{}> {
+  constructor (props) {
     super(props)
     this.resetStatusBar()
   }
@@ -16,7 +16,7 @@ export default class Header extends Component<{}>{
     StatusBar.setTranslucent(isTranslucent)
   }
 
-  render() {
+  render () {
     return (
       <View>
         <StatusBar />
