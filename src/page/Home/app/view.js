@@ -27,10 +27,23 @@ export default class App extends Component<{}> {
     this.callAlert = this.callAlert.bind(this)
     this.goAboutMe = this.goAboutMe.bind(this)
     this.state = {
-      url: 'https://www.baidu.com'
+      url: 'https://www.baidu.com',
+      fadeAnim: new Animated.Value(0)
     }
   }
-
+  
+  checkoutView = (e) => {
+    console.log('e---', e.nativeEvent.contentOffset.y)
+    let y = e.nativeEvent.contentOffset.y
+    let toValue = y > 20 ? 1 : 0
+    Animated.timing(
+      this.state.fadeAnim,
+      {
+        toValue: toValue
+      }
+    ).start()
+  }
+  
   getAlertHandler () {
     NativeModules.CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey')
   }
@@ -50,30 +63,43 @@ export default class App extends Component<{}> {
 
   render () {
     console.log('Home props---', this.props)
-    const {url} = this.state
+    const {fadeAnim} = this.state
     return (
 	    <SafeAreaView forceInset={{horizontal: 'always', vertical: 'always'}} style={styles.container}>
-	      <ScrollView>
-				    <Button onPress={this.goAboutMe} title='点我跳到关于我的页面' />
-				    <Button onPress={this.getAlertHandler} title='点我调用原生组件13' />
-				    <Button onPress={this.callAlert} title='点我唤起 RN 的弹窗' />
-				    <View>
-					    <Text style={styles.textWrapper}>我是内容</Text>
-				    </View>
-				    <Button onPress={this.showWebView} title='点我打开 WebView' />
-			    </ScrollView>
-          <View style={{flex: 1}}>
-            <WebView
-              ref={WEBVIEW_REF}
-              source={{uri: url}}
-              startInLoadingState={true}
-              domStorageEnabled={true}
-              scalesPageToFit={true}
-              bounces={false}
-              javaScriptEnabled={true}
-              automaticallyAdjustContentInsets={true}
-            />
-          </View>
+	      <ScrollView
+          onScroll={this.checkoutView}
+          scrollEventThrottle={200}
+        >
+          <Button onPress={this.goAboutMe} title='点我跳到关于我的页面' />
+          <Button onPress={this.getAlertHandler} title='点我调用原生组件13' />
+          <Button onPress={this.callAlert} title='点我唤起 RN 的弹窗' />
+          <View>
+            <Text style={styles.textWrapper}>我是内容</Text>
+          </View>
+          <Button onPress={this.showWebView} title='点我打开 WebView' />
+          <Button onPress={this.checkoutView} title='点我显示' />
+          <Animated.View
+            style={{
+              opacity: fadeAnim
+            }}
+          >
+            <View style={styles.scrollTest}>
+              <Text>我会通过滑动出现</Text>
+            </View>
+          </Animated.View>
+        </ScrollView>
+          {/*<View style={{flex: 1}}>*/}
+    {/*        <WebView*/}
+              {/*ref={WEBVIEW_REF}*/}
+              {/*source={{uri: url}}*/}
+              {/*startInLoadingState={true}*/}
+              {/*domStorageEnabled={true}*/}
+              {/*scalesPageToFit={true}*/}
+              {/*bounces={false}*/}
+              {/*javaScriptEnabled={true}*/}
+              {/*automaticallyAdjustContentInsets={true}*/}
+            {/*/>*/}
+    {/*      </View>*/}
 	    </SafeAreaView>
     )
   }
@@ -96,5 +122,13 @@ const styles = StyleSheet.create({
   },
   textWrapper: {
   	fontSize: 20
+  },
+  scrollTest: {
+    backgroundColor: '#fff',
+    width: 60,
+    height: 30
+  },
+  largeText: {
+    fontSize: 100
   }
 })
