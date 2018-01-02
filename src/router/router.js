@@ -1,15 +1,20 @@
 
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, TabNavigator } from 'react-navigation'
 import Home from '../page/Home'
 import AboutMe from '../page/AboutMe'
 
+const TestTab = TabNavigator({
+  Home: {
+    screen: Home
+  },
+  Detail: {
+    screen: AboutMe
+  }
+})
+
 const RootNavigator = StackNavigator({
   Home: {
-    screen: Home,
-    navigationOptions: {
-      title: '主页'
-
-    }
+    screen: TestTab,
   },
   AboutMe: {
     screen: AboutMe
