@@ -33,6 +33,7 @@ export default class App extends Component<{}> {
   }
   
   checkoutView = (e) => {
+    console.log('...')
     console.log('e---', e.nativeEvent.contentOffset.y)
     let y = e.nativeEvent.contentOffset.y
     let toValue = y > 20 ? 1 : 0
