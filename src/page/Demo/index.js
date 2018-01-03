@@ -11,9 +11,10 @@ import ScrollableTabView from 'react-native-scrollable-tab-view'
 export default class AboutMe extends Component<{}> {
   render() {
     return (
-      <View>
-        <Text>demo</Text>
-      </View>
+      <ScrollableTabView>
+        <Text>demo1</Text>
+        <Text>demo2</Text>
+      </ScrollableTabView>
     )
   }
 }
