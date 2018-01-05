@@ -18,6 +18,7 @@ export default class AboutMe extends Component<{}> {
         <Text tabLabel="demo1">demo1</Text>
         <Text tabLabel="demo2">demo2</Text>
         <Text tabLabel="demo3">demo3</Text>
+        <Text tabLabel="demo4">demo4</Text>
       </ScrollableTabView>
     )
   }
