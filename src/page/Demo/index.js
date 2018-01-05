@@ -13,6 +13,7 @@ export default class AboutMe extends Component<{}> {
     return (
       <ScrollableTabView
         renderTabBar={() => <ScrollableTabBar />}
+        initialPage={0}
       >
         <Text tabLabel="demo1">demo1</Text>
         <Text tabLabel="demo2">demo2</Text>
