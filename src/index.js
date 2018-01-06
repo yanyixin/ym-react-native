@@ -7,7 +7,7 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 // import { setCustomText } from 'react-native-global-props';
-import {isAndroid} from "./module/utils";
+import {isAndroid} from './module/utils'
 import { view as AppWithNavigationState } from './router'
 import configureStore from './store'
 

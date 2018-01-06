@@ -31,7 +31,7 @@ export default class App extends Component<{}> {
       fadeAnim: new Animated.Value(0)
     }
   }
-  
+
   checkoutView = (e) => {
     console.log('...')
     console.log('e---', e.nativeEvent.contentOffset.y)
@@ -44,7 +44,7 @@ export default class App extends Component<{}> {
       }
     ).start()
   }
-  
+
   getAlertHandler () {
     NativeModules.CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey')
   }
@@ -89,18 +89,18 @@ export default class App extends Component<{}> {
             </View>
           </Animated.View>
         </ScrollView>
-          {/*<View style={{flex: 1}}>*/}
-    {/*        <WebView*/}
-              {/*ref={WEBVIEW_REF}*/}
-              {/*source={{uri: url}}*/}
-              {/*startInLoadingState={true}*/}
-              {/*domStorageEnabled={true}*/}
-              {/*scalesPageToFit={true}*/}
-              {/*bounces={false}*/}
-              {/*javaScriptEnabled={true}*/}
-              {/*automaticallyAdjustContentInsets={true}*/}
-            {/*/>*/}
-    {/*      </View>*/}
+          {/* <View style={{flex: 1}}> */}
+    {/*        <WebView */}
+              {/* ref={WEBVIEW_REF} */}
+              {/* source={{uri: url}} */}
+              {/* startInLoadingState={true} */}
+              {/* domStorageEnabled={true} */}
+              {/* scalesPageToFit={true} */}
+              {/* bounces={false} */}
+              {/* javaScriptEnabled={true} */}
+              {/* automaticallyAdjustContentInsets={true} */}
+            {/* /> */}
+    {/*      </View> */}
 	    </SafeAreaView>
     )
   }

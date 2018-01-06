@@ -15,7 +15,7 @@ const TestTab = TabNavigator({
 
 const RootNavigator = StackNavigator({
   Home: {
-    screen: TestTab,
+    screen: TestTab
   },
   AboutMe: {
     screen: AboutMe
