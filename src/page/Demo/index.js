@@ -18,7 +18,10 @@ export default class AboutMe extends Component<{}> {
       >
         <View tabLabel="demo1">
           <View style={styles.arrowWrapper}>
-            <Arrow />
+            <Arrow type="solid" direction="top" color="pink" size={40}/>
+          </View>
+          <View style={styles.arrowWrapper}>
+            <Arrow type="border" direction="bottom" />
           </View>
         </View>
         <Text tabLabel="demo2">demo2</Text>
@@ -31,6 +34,7 @@ export default class AboutMe extends Component<{}> {
 
 const styles = StyleSheet.create({
   arrowWrapper: {
-    marginLeft: 20
+    marginLeft: 20,
+    marginTop: 10
   }
 })
