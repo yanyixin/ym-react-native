@@ -2,7 +2,7 @@ import { NavigationActions } from 'react-navigation'
 import RootNavigator from './router'
 
 // Start with two routes: The Main screen, with the Login screen on top.
-const firstAction = RootNavigator.router.getActionForPathAndParams('Demo')
+const firstAction = RootNavigator.router.getActionForPathAndParams('AboutMe')
 const tempNavState = RootNavigator.router.getStateForAction(firstAction)
 const secondAction = RootNavigator.router.getActionForPathAndParams('AboutMe')
 

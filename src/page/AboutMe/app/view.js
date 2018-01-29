@@ -14,6 +14,7 @@ import {
 } from 'react-native'
 import mockData from 'ymReactNative/json/mock'
 import Header from 'ymReactNative/src/components/Header'
+import Fetch from 'ymReactNative/src/module/Fetch'
 
 const instructions = Platform.select({
   ios: '这是 ios',
@@ -25,7 +26,8 @@ export default class AboutMe extends PureComponent<{}> {
     super(props)
     this.state = {
       data: [],
-      loading: true
+      loading: true,
+      isLast: 0
     }
     this.getData()
   }
@@ -42,11 +44,13 @@ export default class AboutMe extends PureComponent<{}> {
 
   getData = () => {
     console.log('发送请求')
-    fetch('https://www.easy-mock.com/mock/5a33e031e0069f2d35a263dc/ymMock/getTodoList').then(res => {
-      const {data: {item}} = JSON.parse(res._bodyText)
+    if(this.state.isLast === 1) return
+    Fetch('https://www.easy-mock.com/mock/5a33e031e0069f2d35a263dc/ymMock/getTodoList').then(res => {
+      const {data: {item, isLast}} = res
       this.setState(state => ({
         data: state.data.concat(item),
-        loading: false
+        loading: false,
+        isLast
       }))
     }).catch(e => {
       console.warn('请求错误', e)
@@ -60,10 +64,15 @@ export default class AboutMe extends PureComponent<{}> {
     offset: 44 * index,
     index
   })
+  
+  renderEmptyComponent = () => {
+    return (
+      <Text>阿哦，什么都没有</Text>
+    )
+  }
 
   render () {
     const {data, loading} = this.state
-    console.log('this.state', data)
     return (
       <View style={styles.container}>
         <Header
@@ -80,6 +89,8 @@ export default class AboutMe extends PureComponent<{}> {
             renderItem={this.renderItem}
             getItemLayout={this.getItemLayout}
             onEndReached={this.getData}
+            ListEmptyComponent={this.renderEmptyComponent}
+            ListFooterComponent={<Text>没有啦</Text>}
           />
         }
       </View>
