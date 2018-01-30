@@ -90,7 +90,7 @@ export default class AboutMe extends PureComponent<{}> {
             getItemLayout={this.getItemLayout}
             onEndReached={this.getData}
             ListEmptyComponent={this.renderEmptyComponent}
-            ListFooterComponent={<Text>没有啦</Text>}
+            ListFooterComponent={data.length > 0 && <Text>没有啦</Text>}
           />
         }
       </View>
