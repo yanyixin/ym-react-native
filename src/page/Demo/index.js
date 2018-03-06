@@ -10,6 +10,11 @@ import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-v
 import Arrow from 'ymReactNative/src/components/Arrow'
 
 export default class AboutMe extends Component<{}> {
+  
+  getCrash = () => {
+    abc()
+  }
+  
   render () {
     return (
       <ScrollableTabView
@@ -24,9 +29,11 @@ export default class AboutMe extends Component<{}> {
             <Arrow type="border" direction="bottom" />
           </View>
         </View>
-        <Text tabLabel="demo2">demo2</Text>
-        <Text tabLabel="demo3">demo3</Text>
-        <Text tabLabel="demo4">demo4</Text>
+        <View tabLabel="demo2">
+          <Text onPress={this.getCrash}>制造 crash，查看 sentry 日志</Text>
+        </View>
+        <View tabLabel="demo3"><Text>demo3</Text></View>
+        <View tabLabel="demo4"><Text>demo4</Text></View>
       </ScrollableTabView>
     )
   }
