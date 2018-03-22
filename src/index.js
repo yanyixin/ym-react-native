@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
+import codePush from "react-native-code-push";
 // import { setCustomText } from 'react-native-global-props';
 import {isAndroid} from './module/utils'
 import { view as AppWithNavigationState } from './router'
@@ -37,3 +38,9 @@ export default class App extends Component<{}> {
     )
   }
 }
+
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
+
+const AppContainer = codePush(codePushOptions)(App);
+
+export default AppContainer;
